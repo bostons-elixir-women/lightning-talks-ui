@@ -1,24 +1,25 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - $HOME/.npm
-    - $HOME/.cache # includes bowers cache
-
+  - "$HOME/.npm"
+  - "$HOME/.cache"
 before_install:
-  - npm config set spin false
-  - npm install -g bower phantomjs-prebuilt
-  - bower --version
-  - phantomjs --version
-
+- npm config set spin false
+- npm install -g bower phantomjs-prebuilt
+- bower --version
+- phantomjs --version
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: IDOnI2d928kvCa0f0A4icdR6C94OZOYeSd/YNiykq8ONdAycrZpm59ePpy+2+U0cQddI7XSgyWFmUwOekQGkP6Hjfqst276k9WnHd3Iq25gHDB3aIHwScGiK2TxCtuNXo9fGpB6b5B4sCqUkF9mJfGXVxohrPVQhIqWOYfDH+FcHHoLccn/m9ulbqlBEnbX9+/adyxtykHQKcWcOXYIUkC+MMvrpyMprDcXyfbJwC43XblML7BLeJzn5Rxt3BG4QyYWOBC3WXdFcWWw4ePTVKya82aRaba/fc1660ne0GxlHxmFMlNOal0NuwnrGoUnBydH47ES7vXgWNJ1qouF1wIe5Ht7OTkLCiGzVvQ94o9HCgmHI+8nH6s7ISnnREE+siWGQRGci8pRz0auobtgRyY1HFRXNmpbqNF1p1xoNJ3oqmP9zC2/BLvv0JjqLNLaReJSOkDzIBR9hNvOdyZxGvixmmdeasKKS0d3y0YpmIJh4bGEzc9yXOl7TcXKlidnqd28ltuioiKedBR/QSbR5lLMLiQKvIFuN6u6Q+w/27uILDBn+8xGb23Uok8yQdJqpSdbD1+Wm3fkOTQeCopm7yqCh+oKLidW7HaP/Xf9DFzHuz0xwloVWxMQnHc6m28HHsFp+GYEtxjwbr3Eu3tzKQsmlNkWYk20eygMeV82jBek=
+  app: pacific-savannah-30488
+  on:
+    repo: bostons-elixir-women/lightning-talks-ui
